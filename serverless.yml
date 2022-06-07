@@ -1,3 +1,11 @@
+plugins:
+  - "@purple/serverless-s3-remover"
+
+custom:
+  remover:
+    buckets:
+      - pw98wog-8zjwcgp
+
 supportDocsTest:
   component: "@sls-next/serverless-component"
   inputs:
