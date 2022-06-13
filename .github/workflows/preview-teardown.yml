@@ -45,6 +45,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: Remove bucket contents
+        run: aws s3 rm s3://bucket-name/doc --recursive
+
       - name: Serverless Remove
         run: npx sls remove --stage ${{ env.GITHUB_EVENT_REF_SLUG_URL }}
         #env:

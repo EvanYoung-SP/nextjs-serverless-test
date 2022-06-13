@@ -6,18 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export",
+    "serverless:build": "node scripts/lambda-at-edge.js"
   },
   "dependencies": {
-    "@sls-next/aws-cloudfront": "^3.7.0",
-    "@sls-next/aws-lambda": "^3.7.0",
-    "@sls-next/aws-sqs": "^3.7.0",
-    "@sls-next/domain": "^3.7.0",
-    "@sls-next/serverless-component": "^3.7.0",
+    "@sls-next/lambda-at-edge": "^3.7.0",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "serverless": "^2.72.2"
+    "react-dom": "18.1.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.40",
