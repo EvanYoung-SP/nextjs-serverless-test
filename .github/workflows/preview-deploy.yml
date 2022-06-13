@@ -53,8 +53,7 @@ jobs:
       #    aws-region: us-east-1
       - name: Serverless Deploy
         id: serverless_deploy
-        #run: echo $BUCKET_NAME && npx sls --stage ${{ env.GITHUB_EVENT_REF_SLUG_URL }}
-        run: echo "$BUCKET_WORKFLOW $BUCKET_JOB $BUCKET_NAME"
+        run: npx sls --stage ${{ env.GITHUB_EVENT_REF_SLUG_URL }}
         env:
           BUCKET_NAME: ${{env.GITHUB_REPOSITORY_SLUG_URL}}-${{ env.GITHUB_EVENT_REF_SLUG_URL }}
 
