@@ -36,11 +36,11 @@ jobs:
       #      ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
       - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
+        #if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Run Build
-        if: steps.cache.outputs.cache-hit != 'true'
+        #if: steps.cache.outputs.cache-hit != 'true'
         run: npm run build
 
       - name: Configure AWS Credentials
