@@ -52,7 +52,9 @@ jobs:
 
       - name: Serverless Deploy
         id: serverless_deploy
-        run: BUCKET_NAME=${{env.GITHUB_REPOSITORY_SLUG_URL}}-${{ env.GITHUB_EVENT_REF_SLUG_URL }} npx sls --stage ${{ env.GITHUB_EVENT_REF_SLUG_URL }}
+        run: npx sls --stage ${{ env.GITHUB_EVENT_REF_SLUG_URL }}
+        env:
+          BUCKET_NAME: ${{env.GITHUB_REPOSITORY_SLUG_URL}}-${{ env.GITHUB_EVENT_REF_SLUG_URL }}
         #env:
         #  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         #  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
