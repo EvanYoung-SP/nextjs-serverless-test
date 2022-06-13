@@ -1,5 +1,5 @@
 plugins:
-  - "@purple/serverless-s3-remover"
+  - serverless-plugin-git-variables
 
 supportDocsTest:
   component: "@sls-next/serverless-component"
