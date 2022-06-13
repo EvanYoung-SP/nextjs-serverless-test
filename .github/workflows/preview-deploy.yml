@@ -36,25 +36,22 @@ jobs:
       #    # If source files changed but packages didn't, rebuild from a prior cache.
       #    restore-keys: |
       #      ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-
-      - name: Install Dependencies
-        #if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
-
-      - name: Run Build
-        #if: steps.cache.outputs.cache-hit != 'true'
-        run: npm run build
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-
+      #- name: Install Dependencies
+      #  #if: steps.cache.outputs.cache-hit != 'true'
+      #  run: npm install
+      #- name: Run Build
+      #  #if: steps.cache.outputs.cache-hit != 'true'
+      #  run: npm run build
+      #- name: Configure AWS Credentials
+      #  uses: aws-actions/configure-aws-credentials@v1
+      #  with:
+      #    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #    aws-region: us-east-1
       - name: Serverless Deploy
         id: serverless_deploy
-        run: echo $BUCKET_NAME && npx sls --stage ${{ env.GITHUB_EVENT_REF_SLUG_URL }}
+        #run: echo $BUCKET_NAME && npx sls --stage ${{ env.GITHUB_EVENT_REF_SLUG_URL }}
+        run: echo $BUCKET_NAME
 
         #env:
         #  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
