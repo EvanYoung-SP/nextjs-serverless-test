@@ -45,12 +45,16 @@ jobs:
       #    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
       #    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       #    aws-region: us-east-1
+
+      - name: Set Env
+        env:
+          BUCKET_NAME: ${{env.GITHUB_REPOSITORY_SLUG_URL}}-${{ env.GITHUB_EVENT_REF_SLUG_URL }}
+
       - name: Serverless Deploy
         id: serverless_deploy
         #run: echo $BUCKET_NAME && npx sls --stage ${{ env.GITHUB_EVENT_REF_SLUG_URL }}
-        run: echo $BUCKET_NAME
-        env:
-          BUCKET_NAME: ${{env.GITHUB_REPOSITORY_SLUG_URL}}-${{ env.GITHUB_EVENT_REF_SLUG_URL }}
+        run: $BUCKET_NAME
+
         #env:
         #  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         #  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
