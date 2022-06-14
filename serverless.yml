@@ -5,7 +5,7 @@ supportDocsTest:
   component: "@sls-next/serverless-component"
   runtime: "nodejs16.x"
   inputs:
-    bucketName: ${env:BUCKET_NAME}
+    bucketName: ${git:repository}-${git:branch}
     tag:
       {
         service: "support-docs",
