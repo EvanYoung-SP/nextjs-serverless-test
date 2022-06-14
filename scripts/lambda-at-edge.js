@@ -1,3 +1,6 @@
+// ERY: This was an attempt to build serverless from scratch using only AWS CLI and lambda-at-edge
+// The building worked, but getting the environment setup was tricky.
+
 const path = require('path');
 const { Builder } = require("@sls-next/lambda-at-edge");
 
